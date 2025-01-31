@@ -123,8 +123,8 @@ export const resolvers = {
             const data = await response.json()
 
             const existe = await ctx.restaurantsCollection.findOne({telefono: args.telefono})
-            if(existe){
-                throw new Error('Error, este telefono ya existe')
+            if(existe || data.is_valid==false){
+                throw new Error('Error, este telefono ya existe o no es valido')
             }
 
             const pais = data.country.toString()
