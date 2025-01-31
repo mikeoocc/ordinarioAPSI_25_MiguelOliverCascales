@@ -124,7 +124,7 @@ export const resolvers = {
 
             const existe = await ctx.restaurantsCollection.findOne({telefono: args.telefono})
             if(existe || data.is_valid==false){
-                throw new Error('Error, este telefono ya existe o no es valido')
+                throw new GraphQLError('Error, este telefono ya existe o no es valido')
             }
 
             const pais = data.country.toString()
