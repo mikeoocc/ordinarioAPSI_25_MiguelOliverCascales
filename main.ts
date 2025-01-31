@@ -11,6 +11,7 @@ const MONGO_URL = Deno.env.get('MONGO_URL')
 if(!MONGO_URL){
   throw new Error('Bad mongo url. . .')
 }
+
 const client = new MongoClient(MONGO_URL)
 await client.connect()
 
